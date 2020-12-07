@@ -46,7 +46,12 @@
     transition: color 0.4s ease;
 }
 
+
 .menu__option:hover {
+    color: var(--primary);
+}
+
+.menu__option--highlighted {
     color: var(--primary);
 }
 

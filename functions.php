@@ -5,11 +5,16 @@
         wp_enqueue_style('style', get_stylesheet_uri());
         wp_enqueue_style('index', get_stylesheet_directory_uri().'/styles/index.css');
         wp_enqueue_style('header', get_stylesheet_directory_uri().'/styles/header.css');
+        wp_enqueue_style('footer', get_stylesheet_directory_uri().'/styles/footer.css');
         wp_enqueue_style('button', get_stylesheet_directory_uri().'/styles/button.css');
+        wp_enqueue_style('boxes', get_stylesheet_directory_uri().'/styles/boxes.css');
         
         wp_enqueue_script('aos-src', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
         wp_enqueue_style('aos-style', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
         
+        // wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js');
+        // wp_enqueue_script('parallax', '/scripts/parallax.min.js');
+
         wp_enqueue_script('main', get_theme_file_uri('/scripts/main.js'));
     }
 
@@ -60,23 +65,36 @@
 
     function main_image() {
         function is_main_img($el) {
-            return $el->post_title == "GLOWNE";
+            return property_exists($el, 'post_title') && $el->post_title == "GLOWNE";
         }
-
-        $photos = get_images_from_media_library();
-        $main_photo = array_filter($photos, "is_main_img");
-        $main_photo_url = wp_get_attachment_image_src( $main_photo[0]->ID , 'full' )[0];
-
+        
+        $front_page = get_post( get_option( 'page_on_front' ) );
+        $main_photos = wp_get_attachment_image_src( get_post_thumbnail_id($front_page->ID), 'single-page-thumbanail' );
+        $main_photo_url = reset($main_photos);
+        
         echo "<img src=". $main_photo_url . "\" \/>";
     }
 
-    function offer_panel_title() {
+    function about_panel_title() {
         echo '<h2>Duzo dostaniesz</h2>';
     }
 
-    function offer_panel_desc() {
+    function about_panel_desc() {
         echo '<p>Nie wydasz nic albo mało, a będziesz mieć zrobione jako tako. Contra legem facit qui id facit quod lex prohibet. Fabio vel iudice vincam, sunt in culpa qui officia. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Nihil hic munitissimus habendi senatus locus, nihil horum?</p>';
     }
+
+    function about_grid_content($num) {
+        $page = get_page_by_title("O_NAS_KRATKA_$num", 'OBJECT', "page");
+        echo apply_filters( 'the_content', $page->post_content );
+    } 
+
+    function about_grid_icon($num) {
+        $page = get_page_by_title("O_NAS_KRATKA_$num", 'OBJECT', "page");
+        $image_arr = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'single-page-thumbnail' );
+        $image = reset($image_arr);
+
+        echo "<img src=$image alt='grid-icon-$page->title'/>";
+    } 
 
     function debug_to_console($data) {
         $output = $data;
