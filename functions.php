@@ -8,6 +8,9 @@
         wp_enqueue_style('footer', get_stylesheet_directory_uri().'/styles/footer.css');
         wp_enqueue_style('button', get_stylesheet_directory_uri().'/styles/button.css');
         wp_enqueue_style('boxes', get_stylesheet_directory_uri().'/styles/boxes.css');
+        wp_enqueue_style('form', get_stylesheet_directory_uri().'/styles/form.css');
+        
+        wp_enqueue_script('smooth-scroll', '/scripts/smooth-scroll.polyfills.min.js');
         
         wp_enqueue_script('aos-src', 'https://unpkg.com/aos@2.3.1/dist/aos.js');
         wp_enqueue_style('aos-style', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
@@ -96,14 +99,26 @@
         echo "<img src=$image alt='grid-icon-$page->title'/>";
     } 
 
-    function debug_to_console($data) {
-        $output = $data;
-        if (is_array($output))
-            $output = implode(',', $output);
-    
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    function about_article() {
+        $page = get_page_by_title("O_NAS_ARTYKUL", 'OBJECT', "page");
+        echo $page->post_content;
     }
-    
+
+    function about_article_img() {
+        $page = get_page_by_title("O_NAS_ARTYKUL", 'OBJECT', "page");
+        // echo $page;
+        $image_arr = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'single-page-thumbnail' );
+        // var_dump($image_arr);
+        $image = reset($image_arr);
+        echo "<img src=$image alt='grid-icon-$page->title'/>";
+    }
+
+    function contact_info() {
+        $page = get_page_by_title("KONTAKT", 'OBJECT', "page");
+        echo $page->post_content;
+    }
+
+
     add_action('wp_enqueue_scripts', 'preload_scripts');
     add_action('after_setup_theme', 'theme_init');
     add_theme_support( 'custom-logo' );

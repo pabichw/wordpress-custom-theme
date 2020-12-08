@@ -1,0 +1,34 @@
+input, textarea {
+    border-radius: 8px;
+    height: 24px;
+    padding: 10px 15px;
+
+    border: 1px solid var(--primary);
+    outline-style: none;
+
+    font-family: Poppins;
+}
+
+textarea {
+    min-height: 200px;
+    resize: none;
+}
+
+/* contact form */
+
+.contact-content-wrapper__content-wrapper-chunk > form {
+    width: 100%;
+}
+
+.contact-content-wrapper__content-wrapper-chunk > form > div > input{
+    width: 200px;
+}
+
+.contact-content-wrapper__content-wrapper-chunk > form > div > textarea{
+    width: 300px;
+}
+
+.input-wrapper {
+    margin-bottom: 8px;
+
+}

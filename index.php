@@ -26,7 +26,7 @@
             </div>
         </main>
     </section>
-    <section class="panel about-section">
+    <section id="o-nas" class="panel about-section">
         <main class="panel__content about-section__content">
             <article class="about-article">
                 <div class="about-article__main" data-aos="fade-up" data-aos-duration="1200">
@@ -58,17 +58,36 @@
             </article>
         </main>
     </section>
-    <section class="panel photos-section">
-        <main class="panel__content photos-section__content">
-            <article class="photos-article">
-                Jakieś zdjęcia tu, nie wiem 📷
+    <section id="o-nas-2" class="panel about-2-section">
+        <main class="panel__content about-2-section__content">
+            <article class="about-2-content__about-2-article" data-aos="fade-up" data-aos-duration="1200">
+                <h3 class="about-2-article__about-2-title">O nas</h3>
+                <div class="about-2-article__about-2-content">
+                    <?php about_article() ?>
+                </div>
+                <div class="about-2-article__article-2-img-wrapper">
+                    <?php about_article_img() ?>
+                </div>
             </article>
         </main>
     </section>
-    <section class="panel contact-section">
+    <section id="kontakt" class="panel contact-section">
         <main class="panel__content contact-section__content">
             <article class="contact-article">
-                Tutaj formularz kontaktowy 📝 💌
+                <div class="contact-article__contact-content-wrapper">
+                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-right" data-aos-duration="2200">
+                        <h3 class="contact-article__contact-title">
+                            Kontakt
+                        </h3>
+                        <?php contact_info()?>
+                    </div>
+                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-left" data-aos-duration="2200">
+                        <h3 class="contact-article__contact-title">
+                            Napisz do nas
+                        </h3>
+                        <?php echo do_shortcode('[contact-form-7 id="58" title="Contact form 1"]') ?>
+                    </div>
+                </div>
             </article>
         </main>
     </section>
