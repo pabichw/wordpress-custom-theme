@@ -9,6 +9,7 @@
         wp_enqueue_style('button', get_stylesheet_directory_uri().'/styles/button.css');
         wp_enqueue_style('boxes', get_stylesheet_directory_uri().'/styles/boxes.css');
         wp_enqueue_style('form', get_stylesheet_directory_uri().'/styles/form.css');
+        wp_enqueue_style('cennik', get_stylesheet_directory_uri().'/styles/cennik.css');
         
         wp_enqueue_script('smooth-scroll', '/scripts/smooth-scroll.polyfills.min.js');
         
@@ -115,6 +116,11 @@
 
     function contact_info() {
         $page = get_page_by_title("KONTAKT", 'OBJECT', "page");
+        echo $page->post_content;
+    }
+
+    function pricelist_info() {
+        $page = get_page_by_title("CENNIK", 'OBJECT', "page");
         echo $page->post_content;
     }
 

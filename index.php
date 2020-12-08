@@ -7,6 +7,7 @@
 </head>
 <body>
     <?php echo get_header()?>
+
     <section class="panel welcome-section">
         <div class="panel__bckg-img">
             <!-- <div class="parallax-window" data-parallax="scroll" data-image-src="/path/to/image.jpg"></div> -->
@@ -75,13 +76,13 @@
         <main class="panel__content contact-section__content">
             <article class="contact-article">
                 <div class="contact-article__contact-content-wrapper">
-                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-right" data-aos-duration="2200">
+                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-right" data-aos-duration="1200">
                         <h3 class="contact-article__contact-title">
                             Kontakt
                         </h3>
                         <?php contact_info()?>
                     </div>
-                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-left" data-aos-duration="2200">
+                    <div class="contact-content-wrapper__content-wrapper-chunk" data-aos="fade-left" data-aos-duration="1200">
                         <h3 class="contact-article__contact-title">
                             Napisz do nas
                         </h3>

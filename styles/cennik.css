@@ -1,0 +1,10 @@
+.price-list-section {
+    margin: 140px 60px 0;
+}
+
+.price-list-article > h2 {
+    font-size: 1.8rem;
+    color: var(--font-primary);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
