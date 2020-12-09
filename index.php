@@ -23,7 +23,7 @@
                 <?php welcome_subtitle(); ?>
             </div>
             <div class="content__button-wrapper" data-aos="fade-up" data-aos-duration="1300">
-                <button class="button button--primary" ahref="#kontakt">Kontakt</button>
+                <button class="button button--primary" onclick=" location.href='/#kontakt' ">Kontakt</button>
             </div>
         </main>
     </section>
@@ -31,9 +31,6 @@
         <main class="panel__content about-section__content">
             <article class="about-article">
                 <div class="about-article__main" data-aos="fade-up" data-aos-duration="1200">
-                    <div class="article__title">
-                        <?php about_panel_title() ?>
-                    </div>  
                     <div class="article__description">
                         <?php about_panel_desc() ?>
                     </div>

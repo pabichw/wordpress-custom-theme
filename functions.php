@@ -79,12 +79,11 @@
         echo "<img src=". $main_photo_url . "\" \/>";
     }
 
-    function about_panel_title() {
-        echo '<h2>Duzo dostaniesz</h2>';
-    }
 
     function about_panel_desc() {
-        echo '<p>Nie wydasz nic albo mało, a będziesz mieć zrobione jako tako. Contra legem facit qui id facit quod lex prohibet. Fabio vel iudice vincam, sunt in culpa qui officia. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Nihil hic munitissimus habendi senatus locus, nihil horum?</p>';
+        $page = get_page_by_title("O_NAS_LEWA_KOLUMNA", 'OBJECT', "page");
+
+        echo $page->post_content;
     }
 
     function about_grid_content($num) {
